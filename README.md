@@ -88,6 +88,6 @@ This project is open-source and available under the MIT License.
 
 👨‍💻 Developed By
 
-Your Name | GitHub | LinkedIn
+Lalit Jadhav | [GitHub](https://github.com/lalitjadhavt3/)
 
 🚀 Happy Coding!
