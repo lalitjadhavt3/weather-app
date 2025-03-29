@@ -1,7 +1,6 @@
 import axios from "axios";
+import { TOMORROW_IO_API_KEY, WEATHERBIT_API_KEY, TOMORROW_IO_API_URL, WEATHERBIT_API_URL } from "@env";
 
-const TOMORROW_IO_API_KEY = "WJKV8cZjrL1erC3moIg7QZbXWNqquhRc";
-const WEATHERBIT_API_KEY = "YOUR_WEATHERBIT_API_KEY"; // Replace with your Weatherbit API key
 const UNITS = "M"; // Metric system for Weatherbit
 const TIMESTEPS = "1d"; // Daily forecast
 
@@ -29,7 +28,7 @@ export interface WeatherData {
 
 // Fetch Weather from Tomorrow.io
 const fetchFromTomorrowIO = async (city: string): Promise<WeatherData> => {
-  const response = await axios.get("https://api.tomorrow.io/v4/weather/forecast", {
+  const response = await axios.get(TOMORROW_IO_API_URL, {
     params: {
       location: city,
       apikey: TOMORROW_IO_API_KEY,
@@ -44,7 +43,7 @@ const fetchFromTomorrowIO = async (city: string): Promise<WeatherData> => {
 
 // Fetch Weather from Weatherbit (Backup API)
 const fetchFromWeatherbit = async (city: string): Promise<WeatherData> => {
-  const response = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily`, {
+  const response = await axios.get(WEATHERBIT_API_URL, {
     params: {
       city: city,
       key: WEATHERBIT_API_KEY,
